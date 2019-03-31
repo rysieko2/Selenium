@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import static org.junit.Assert.assertTrue;
+
 public class FirstTest {
 
     private WebDriver driver;
@@ -23,14 +24,12 @@ public class FirstTest {
         szukajka.sendKeys("Mistrzostwa Świata w piłce nożnej 2018");
         szukajka.submit();
         Thread.sleep(5000);
+
         WebElement link = driver.findElement(By.xpath("/html/body/div[2]/main/ol/li[2]/div[1]/h2/a"));
         String textLinku = link.getText();
-
-      //  System.out.println("Text linku" + textLinku);
-        String oczekiwanyTekst = "Mistrzostwa Świata w Piłce Nożnej 2018 – Wikipedia, wolna ...";
+        String oczekiwanyTekst = "Mistrzostwa Świata w Piłce Nożnej 2018 – Wikipedia, …";
+        System.out.println("Text linku: " + textLinku);
         assertTrue(textLinku.equals(oczekiwanyTekst));
-        System.out.println("Text linku" + textLinku);
-
     }
     @After
     public void testDown() {
